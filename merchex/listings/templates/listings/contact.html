@@ -1,0 +1,34 @@
+<!-- En résumé :
+Ce template HTML :
+est utilisé dans un projet Django.
+affiche un formulaire de contact généré dynamiquement par Django.
+utilise une méthode sécurisée (POST + CSRF).
+présente le formulaire en format simple et lisible (as_p). -->
+
+<!DOCTYPE html>  <!--indique que le document est en HTML5 -->
+<html> <!--racine du document HTML. -->
+<head> 
+    <title>Contactez-nous</title>
+</head> <!-- section contenant des métadonnées (titre, CSS, etc.). -->
+<body>
+    <h1>Contact</h1>  <!-- -->
+    <p>Nous sommes là pour vous aider.</p>  <!-- -->
+<form action="" method="post" novalidate>  
+<!--action="" : envoie les données à la même URL que la page actuelle. -->
+<!-- novalidate : désactive la validation HTML5 automatique (pour laisser Django valider).-->
+{% csrf_token %}  
+<!-- {% csrf_token %}  balise Django qui insère un jeton de 
+    sécurité contre les attaques CSRF. Obligatoire dans 
+    les formulaires POST.-->
+{{ form.as_table }}
+<!--{{ form.as_p }} : affiche le formulaire 
+    Django (généré dans la vue Python) 
+    sous forme de paragraphes-->
+
+<input type="submit" value="Envoyer"> 
+<!--<input type="submit" value="Envoyer"> : bouton pour envoyer le formulaire.-->
+</form>
+</body>
+</html>
+
+

@@ -1,0 +1,24 @@
+<!-- listings/templates/listings/listing.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des annonces</title>
+</head>
+<body>
+    <h1>Liste des annonces</h1>
+
+    {% if listing %}
+        <ul>
+        {% for listing in listing %}
+            <li>
+                <strong>{{ listing.title }}</strong><br>
+                {{ listing.description }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune annonce pour le moment.</p>
+    {% endif %}
+</body>
+</html>
+
