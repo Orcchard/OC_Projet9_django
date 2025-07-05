@@ -1,14 +1,17 @@
-""" 
+"""
 - name (CharField) : Nom du groupe.
     - description (CharField) : Description courte du groupe.
     - biography (CharField) : Biographie détaillée du groupe.
-    - genre (CharField) : Genre musical, choisi parmi une liste prédéfinie (Genre).
-    - year_formed (IntegerField) : Année de formation du groupe, entre 1300 et 2021.
+    - genre (CharField) : Genre musical, choisi parmi une liste
+    prédéfinie (Genre).
+    - year_formed (IntegerField) : Année de formation du groupe,
+    entre 1300 et 2021.
     - active (BooleanField) : Indique si le groupe est toujours actif.
     - official_homepage (URLField) : URL officielle du groupe (optionnel).
     - sold (BooleanField) : Indique si le produit est vendu.
-    - type (CharField) : Type de produit associé, parmi une liste prédéfinie (Type).
-    - like_new (BooleanField) : Indique si l'objet est en état "comme neuf". 
+    - type (CharField) : Type de produit associé, parmi
+    une liste prédéfinie (Type).
+    - like_new (BooleanField) : Indique si l'objet est en état "comme neuf".
     """
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator

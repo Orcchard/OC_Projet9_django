@@ -31,9 +31,25 @@ def contact(request):
     # ajoutez ces instructions d'impression afin que nous
     # puissions jeter un coup d'oeil à « request.method »
     # et à « request.POST »
-    print('La méthode de requête est : ', request.method)
-    print('Les données POST sont : ', request.POST)
-    form = ContactUsForm()  # ajout d’un nouveau formulaire ici
+    # ...nous pouvons supprimer les déclarations de
+    # journalisation qui étaient ici...
+
+    if request.method == 'POST':
+        # créer une instance de notre formulaire et le remplir
+        # avec les données POST
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            send_mail(
+                subject=f"Message from {form.cleaned_data["name"] or "anonyme"}"
+                f"via MerchEx Contact Us form', message=form.cleaned_data['message']",
+            from_email=form.cleaned_data['email'],
+            recipient_list=['admin@merchex.xyz'],)
+        # si le formulaire n'est pas valide, nous laissons l'exécution
+        # continuer jusqu'au return
+        # ci-dessous et afficher à nouveau le formulaire (avec des erreurs).
+    else:
+        # ceci doit être une requête GET, donc créer un formulaire vide
+        form = ContactUsForm()  # ajout d’un nouveau formulaire ici
     return render(
         request,
         'listings/contact.html',
