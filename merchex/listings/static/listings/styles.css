@@ -5,3 +5,33 @@
 .errorlist {
     margin-bottom: -10px
 }
+
+/* styles.css */
+
+/* Style de la barre de navigation */
+nav {
+    background-color: #333;
+    /* fond foncé */
+    padding: 10px 20px;
+    display: flex;
+    gap: 20px;
+    /* espace entre les liens */
+}
+
+/* Style des liens dans la nav */
+nav a {
+    color: white;
+    /* texte blanc */
+    text-decoration: none;
+    /* pas de soulignement */
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    transition: color 0.3s ease;
+}
+
+/* Effet au survol */
+nav a:hover {
+    color: #ffcc00;
+    /* jaune doré au survol */
+    text-decoration: underline;
+}

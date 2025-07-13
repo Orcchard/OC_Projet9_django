@@ -1,13 +1,42 @@
+<!DOCTYPE html>
 {% load static %}
-<html>
-    <head><title>Merchex</title></head>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Merchex</title>
     <link rel="stylesheet" href="{% static 'listings/styles.css' %}" />
-    <body>
+</head>
+<body>
     <nav>
-        <a href="{% url 'band_list' %}">Groupes</a>
+        <ul>
+            <li>
+                <a href="{% url 'band_list' %}"
+                class="{% if request.resolver_match.url_name == 'band_list' %}active{% endif %}">
+                    Groupes  </a>
+            </li>
+            <li>
+                <a href="{% url 'listing' %}"
+                class="{% if request.resolver_match.url_name == 'listing' %}active{% endif %}">
+                    Annonces
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'contact' %}"
+                class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+        Contact
+    </a>
+            </li>
+            <li>
+                <a href="{% url 'about' %}"
+                class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                    À propos
+                </a>
+            </li>
+        </ul>
     </nav>
-
-        {% block content %}{% endblock %}
-        
-    </body>
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+</body>
 </html>

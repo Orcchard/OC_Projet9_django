@@ -23,9 +23,7 @@ urlpatterns = [
     path('bands/', views.band_list, name='band_list'),
     path('bands/<int:band_id>/', views.band_detail, name='band_detail'),
     path('contact-us/', views.contact, name='contact'),
-
-    # ajouter ce motif sous notre autre motif de groupes
-    path('about-us/', views.about),
-    path('contact/', views.contact),
-    path('listing/', views.listing),
+    path('about-us/', views.about, name='about'),
+    path('listing/', views.listing, name='listing'),
+    path('email-sent/', views.received, name='email-sent')
 ]
